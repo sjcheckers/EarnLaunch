@@ -1,91 +1,19 @@
 
-/* ================================
-   BASE DESIGN SYSTEM – EARNLAUNCH
-   ================================ */
-
-/* CSS VARIABLES */
 :root{
-  /* Core colors */
-  --black:#0a0a0a;
-  --white:#ffffff;
-
-  /* Brand / Accent (Jumia-inspired but unique) */
-  --accent:#f68b1e;
-  --accent-dark:#e07c13;
-
-  /* Text */
-  --text-main:#111827;
-  --text-muted:#6b7280;
-
-  /* UI */
-  --border:#e5e7eb;
-  --bg-soft:#f9fafb;
-
-  /* Status */
-  --success:#1ba672;
+  --dark:#0B1A2F;
+  --soft:#EFF2F7;
+  --accent:#F68B1E;
+  --accent-dark:#E07C13;
+  --success:#1BA672;
+  --text:#111827;
+  --muted:#6B7280;
+  --border:#E5E7EB;
 }
 
-/* RESET */
-*,
-*::before,
-*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-/* HTML & BODY */
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Arial, sans-serif;
-  background:var(--white);
-  color:var(--text-main);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* LINKS */
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* BUTTON RESET */
-button{
-  font-family:inherit;
-  border:none;
-  background:none;
-  cursor:pointer;
-}
-
-/* TEXT ELEMENTS */
-h1,h2,h3,h4,h5{
-  font-weight:700;
-  letter-spacing:-0.02em;
-  color:var(--black);
-}
-
-p{
-  font-size:1rem;
-  color:var(--text-muted);
-}
-
-/* UTILITIES */
-.hidden{
-  display:none;
-}
-
-.text-center{
-  text-align:center;
-}
-
-/* ACCESSIBILITY */
-button:focus,
-a:focus{
-  outline:2px solid var(--accent);
-  outline-offset:2px;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif;}
+body{background:var(--soft);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{border:none;background:none;cursor:pointer;}
+h1,h2,h3,h4{font-weight:700;color:var(--text);}
+p{color:var(--muted);}
+.text-center{text-align:center;}
