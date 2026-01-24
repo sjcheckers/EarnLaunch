@@ -1,0 +1,174 @@
+/* =====================================================
+   PROFESSIONAL UI THEME — DROP IN
+===================================================== */
+
+/* ---------- ROOT COLORS ---------- */
+:root{
+  --p-blue:#0d6efd;
+  --p-blue-soft:#e8f1ff;
+  --p-dark:#0b132b;
+  --p-gray:#6b7280;
+  --p-bg:#f6f9fc;
+  --p-card:#ffffff;
+  --p-accent:#00c897;
+}
+
+/* ---------- GLOBAL ---------- */
+body{
+  background:var(--p-bg);
+  color:#1f2937;
+  font-family:"Inter","Segoe UI",Arial,sans-serif;
+  line-height:1.7;
+}
+
+/* ---------- HEADER / NAV ---------- */
+header{
+  background:linear-gradient(90deg,#0b132b,#1c2541);
+}
+.navbar a{
+  color:#e5e7eb!important;
+  font-weight:500;
+}
+.navbar a:hover{
+  color:var(--p-accent)!important;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    linear-gradient(rgba(11,19,43,.75),rgba(11,19,43,.75)),
+    linear-gradient(120deg,#0d6efd,#00c897);
+  padding:120px 0;
+  color:#fff;
+}
+.hero h1{
+  font-size:48px;
+  font-weight:800;
+}
+.hero p{
+  max-width:540px;
+  font-size:18px;
+  opacity:.95;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-hover1{
+  background:linear-gradient(135deg,#0d6efd,#00c897);
+  padding:15px 36px;
+  border-radius:50px;
+  font-weight:700;
+}
+.btn-hover1:hover{
+  filter:brightness(1.1);
+}
+
+/* ---------- SECTIONS ---------- */
+section{
+  padding:95px 0;
+}
+
+/* ---------- CARDS ---------- */
+.fin-card,
+.ab_card1,
+.ab_card2,
+.offers{
+  background:var(--p-card);
+  border-radius:18px;
+  padding:32px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+  transition:.35s;
+}
+.fin-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+.fin-card .icon{
+  font-size:40px;
+  color:var(--p-blue);
+}
+
+/* ---------- FINANCE / FEATURES ---------- */
+.finance{
+  background:var(--p-blue-soft);
+}
+.finance h2{
+  font-weight:800;
+}
+
+/* ---------- PAYMENT GATEWAY ---------- */
+.gateway{
+  background:linear-gradient(180deg,#ffffff,#eef5ff);
+}
+.gate{
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  border:1px solid #e5e7eb;
+}
+
+/* ---------- DARK SECTION ---------- */
+.where-it-works{
+  background:linear-gradient(135deg,#0b132b,#1c2541);
+  color:#e5e7eb;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+.profaessional{
+  background:#f9fafb;
+}
+.prof-slide{
+  background:#fff;
+  border-radius:18px;
+  padding:34px;
+  border:1px solid #e5e7eb;
+}
+
+/* ---------- FAQ ---------- */
+.question{
+  background:var(--p-blue-soft);
+}
+.accordion-item{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+.accordion-button{
+  font-weight:600;
+  background:#fff;
+}
+
+/* ---------- FOOTER ---------- */
+.footer-contact{
+  background:linear-gradient(135deg,#020617,#0b132b);
+}
+.footer-contact p,
+.footer-contact a{
+  color:#cbd5f5;
+}
+
+/* ---------- LICENSE ---------- */
+.site-license{
+  background:#020617;
+  color:#9ca3af;
+  padding:18px;
+  font-size:13px;
+  text-align:center;
+}
+.site-license strong{
+  color:#e5e7eb;
+}
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.whatsapp-btn-container{
+  z-index:99999;
+}
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pro.css"> <!-- LAST -->
+
+/* ---------- MOBILE ---------- */
+@media(max-width:768px){
+  .hero h1{font-size:34px}
+  section{padding:70px 0}
+}
