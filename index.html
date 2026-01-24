@@ -78,7 +78,7 @@
             -moz-osx-font-smoothing: grayscale;
             touch-action: pan-y;
             position: relative;
-            overscroll-behavior-y: none;
+            overscroll-behavior-y: auto;
         }
         .section-bg {background:#f1f3f5;}
         /* === ENLARGED HERO (15% bigger) === */
@@ -933,14 +933,7 @@ button, .btn, .cta-button {
     document.documentElement.style.overflowX = 'hidden';
     document.body.style.overflowX = 'hidden';
     document.body.style.touchAction = 'pan-y';
-
-    document.addEventListener('touchstart', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', e => {
-        const now = Date.now();
-        if (now - lastTouchEnd <= 300) e.preventDefault();
-        lastTouchEnd = now;
-    }, false);
+    
 </script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"b20276611e094189b13353d786714554","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
