@@ -1,192 +1,1067 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ====== BASIC META ====== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <!-- ====== SEO META TAGS ====== -->
+    <title>VisualSite - Earn Money Online | Chat, Watch Videos & More</title>
+    <meta name="description" content="Join VisualSite and start earning real money from home in Uganda. Get paid to chat with foreigners, watch TikTok & YouTube videos, play trivia quizzes, download apps & more. Instant withdrawals via MTN MoMo, Airtel Money & bank.">
+    <meta name="keywords" content="visualsite, earn money online Uganda, make money chatting, get paid to watch videos, online jobs Africa, work from home Uganda, MTN MoMo earnings, Airtel Money withdraw, trivia quizzes earn money, TikTok earning app">
+    <meta name="author" content="VisualSite">
+    <meta name="robots" content="index, follow">
+    
+    <!-- IMPORTANT: Force English language and prevent translation -->
+    <meta name="language" content="English">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="google" content="notranslate">
+    <meta name="googlebot" content="notranslate">
+    <meta name="geo.region" content="UG">
+    <meta name="geo.placename" content="Uganda">
+    
+    <!-- Prevent indexing of other language versions -->
+    <link rel="alternate" hreflang="en" href="https://www.visualsite.com/">
+    <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <link rel="canonical" href="https://www.visualsite.com/">
+    
+    <!-- ====== OPEN GRAPH / FACEBOOK ====== -->
+    <meta property="og:title" content="VisualSite - Earn Money Online in Uganda & Africa | Chat, Watch Videos & More">
+    <meta property="og:description" content="Start earning today! Chat with people worldwide, watch videos, play quizzes & withdraw instantly via MTN MoMo or Airtel Money. Join thousands of Ugandans earning daily.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.visualsite.com/">
+    <meta property="og:image" content="https://www.visualsite.com/assets/images/VisualSite.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="VisualSite">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="en_GB">
+    
+    <!-- ====== TWITTER CARD ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VisualSite - Earn Money Online in Uganda & Africa">
+    <meta name="twitter:description" content="Get paid to chat, watch videos, play quizzes. Withdraw via MTN MoMo instantly. Join thousands earning daily!">
+    <meta name="twitter:image" content="https://www.visualsite.com/assets/images/VisualSite.png">
+    <meta name="twitter:site" content="@VisualSiteUG">
+    <meta name="twitter:creator" content="@VisualSiteUG">
+    
+    <!-- ====== FAVICON ====== -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    
+    <!-- ====== DNS PREFETCH ====== -->
+    <link rel="dns-prefetch" href="//flagcdn.com">
+    <link rel="preconnect" href="https://flagcdn.com">
+    
+    <!-- ====== CSS LIBRARIES ====== -->
+    <link rel="stylesheet" href="assets/css/bootstrap-lib/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/font-awesome-lib/icon/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ====== ADMIN PANEL STYLES ====== -->
+    <style>
+        /* Hidden Admin Trigger Area */
+        .admin-trigger-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            z-index: 10000;
+            cursor: pointer;
+            opacity: 0;
+            background: transparent;
+        }
+        
+        /* Admin Panel Button (visible only to logged-in admins) */
+        .admin-panel-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 9999;
+            background: linear-gradient(145deg, #ff4081, #f50057);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+            transition: all 0.3s ease;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        .admin-panel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.6);
+        }
+        
+        /* Admin Trigger Animation */
+        @keyframes adminPulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+        }
+        
+        .admin-trigger-area.active {
+            animation: adminPulse 2s infinite;
+            opacity: 0.1;
+        }
+    </style>
+    
+    <!-- ====== CUSTOM STYLES (PREMIUM + GOLDEN GLOW) ====== -->
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --primary-dark: #00aaff;
+            --success: #25D366;
+            --danger: #ff4444;
+            --warning: #ffbb33;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gold: #ffd700;
+        }
 
-<title>VisualSite — Earn Money Online in Uganda & Africa</title>
-<meta name="description" content="VisualSite helps Ugandans earn money online by chatting, watching videos, playing quizzes, downloading apps & more. Withdraw via MTN MoMo & Airtel Money.">
-<meta name="keywords" content="VisualSite, earn money Uganda, online jobs Africa, MTN MoMo earnings">
+        /* VISUALSITE LOGO */
+        .visualsite-logo {
+            font-family: 'Arial', sans-serif;
+            font-weight: 900 !important;
+            font-size: 16px !important;
+            color: #FFFFFF !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            text-decoration: none;
+            -webkit-text-stroke: 0.5px #000;
+            transition: all 0.3s ease;
+        }
+        .visualsite-logo:hover {
+            color: #f0f0f0 !important;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+        }
 
-<link rel="icon" href="assets/images/favicon.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        /* REGISTER BUTTONS */
+        .btn-hover1 {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: white !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 28px !important;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            animation: pulseAggressive 2s infinite;
+            z-index: 1;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-hover1::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.7s;
+        }
+        .btn-hover1:hover::before {
+            left: 100%;
+        }
+        .btn-hover1:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+        @keyframes pulseAggressive {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7), 0 4px 15px rgba(0, 212, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 212, 255, 0), 0 4px 15px rgba(0, 212, 255, 0.4); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0), 0 4px 15px rgba(0, 212, 255, 0.4); }
+        }
 
-<style>
-:root{
---blue:#2563eb;
---light:#60a5fa;
---dark:#0f172a;
---bg:#f8fafc;
---green:#22c55e;
-}
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--bg);
-color:var(--dark);
-line-height:1.6;
-}
-header{
-background:linear-gradient(135deg,var(--blue),var(--light));
-color:#fff;
-padding:20px;
-position:sticky;
-top:0;
-z-index:1000;
-}
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-max-width:1200px;
-margin:auto;
-}
-nav a{
-color:#fff;
-text-decoration:none;
-margin:0 10px;
-font-weight:600;
-}
-.hero{
-padding:80px 20px;
-text-align:center;
-background:linear-gradient(135deg,#e0f2fe,#f8fafc);
-}
-.hero h1{font-size:2.5rem}
-.btn{
-display:inline-block;
-background:linear-gradient(45deg,var(--blue),var(--light));
-color:#fff;
-padding:14px 30px;
-border-radius:40px;
-text-decoration:none;
-font-weight:700;
-margin-top:20px;
-}
-section{
-padding:70px 20px;
-max-width:1200px;
-margin:auto;
-}
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-.card{
-background:#fff;
-padding:30px;
-border-radius:14px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-text-align:center;
-}
-.card i{
-font-size:40px;
-color:var(--blue);
-margin-bottom:15px;
-}
-footer{
-background:#020617;
-color:#e5e7eb;
-padding:50px 20px;
-}
-footer a{color:#93c5fd;text-decoration:none}
-.license{
-margin-top:25px;
-font-size:.9rem;
-opacity:.9;
-border-top:1px solid rgba(255,255,255,.2);
-padding-top:15px;
+        /* CONTACT SECTION */
+        .footer-contact {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.8), rgba(30, 30, 30, 0.9));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            margin-top: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .footer-contact h5 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .footer-contact p, .footer-contact a {
+            color: #ddd;
+            font-size: 0.95rem;
+            margin: 6px 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover {
+            color: var(--primary-color);
+        }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp-btn-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 320px;
+            padding: 20px 30px;
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3),
+                        0 6px 10px rgba(0, 0, 0, 0.1),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4),
+                        0 10px 20px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-btn {
+                width: 280px;
+                padding: 18px 25px;
+            }
+            .whatsapp-btn-container {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        /* Flag icons styling */
+.flag-icon {
+    width: 32px !important;
+    height: 21px !important;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin: 2px;
+    transition: transform 0.2s ease;
+    object-fit: cover;
 }
 
-/* WhatsApp Floating */
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25d366;
-color:#fff;
-padding:18px 22px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-box-shadow:0 15px 30px rgba(0,0,0,.25);
-display:flex;
-align-items:center;
-gap:10px;
-z-index:9999;
+.flag-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-</style>
+
+/* Payment logos styling */
+.payment-logo-big {
+    width: 40px !important;
+    height: 25px !important;
+    margin: 5px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.payment-logo-big:hover {
+    filter: grayscale(0%);
+    transform: translateY(-2px);
+}
+
+.payment-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Services section image fix */
+.sevices_img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Hero section image fix */
+.hero img, .gateway img, .about img {
+    max-width: 100%;
+    height: auto;
+}
+    </style>
 </head>
-
 <body>
+    <!-- ====== HIDDEN ADMIN TRIGGER ====== -->
+    <div class="admin-trigger-area" id="adminTrigger"></div>
+    
+    <!-- ====== ADMIN PANEL BUTTON ====== -->
+    
+    <div class="site-wrapper">
+        <div class="first_nav_hero_about">
+            <!-- ======== 1.1. header section ======== -->
+            <header>
+                <nav class="container navbar navbar-expand-lg ">
+                    <div class="container-fluid">
+                        <a class="nav-logo p-0 visualsite-logo" href="index.php" id="siteLogo">VISUALSITE</a>
+                        <button class="navbar-toggle" onclick="openNav()" type="button"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav d-flex justify-content-center align-items-center gap-lg-2 gap-md-2 gap-sm-2 gap-2 mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.php">About us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="feature.php">Feature</a></li>
+                                <li class="dropdown">
+                                    <a class="nav-link" href="#">Pages <i class="fa-sharp fa-solid fa-sort-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="contact.php">Contact</a></li>
+                                        <li><a class="dropdown-item" href="team.php">Team</a></li>
+                                        <li><a class="dropdown-item" href="testimonials.php">Testimonials</a></li>
+                                        <li><a class="dropdown-item" href="blogs.php">Blogs</a></li>
+                                        <li><a class="dropdown-item" href="faq.php">FAQ</a></li>
+                                        <li><a class="dropdown-item" href="404.php">404</a></li>
+                                        <li><a class="dropdown-item" href="coming.php">Coming Soon</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a id="search-bar-bt" class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                                <li class="nav-item header_btn">
+                                    <a class="nav-link nav-hrf btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                                </li>
+                                <li class="nav-item" onclick="open_right_side()">
+                                    <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-bars"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
-<header>
-<nav>
-<strong>VISUALSITE</strong>
-<div>
-<a href="#home">Home</a>
-<a href="#earn">Earn</a>
-<a href="#how">How It Works</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-</header>
+                <!--============ navigation left slidebar================-->
+                <aside>
+                    <div id="mySidenav" class="sidenav">
+                        <div class="side-nav-logo d-flex justify-content-between align-items-center ps-4 pe-3">
+                            <a href="index.php" class="visualsite-logo">VISUALSITE</a>
+                            <div class="closebtn" onclick="closeNav()"><i class="fa-solid fa-square-xmark side-bar-close-btn"></i></div>
+                        </div>
+                        <ul>
+                            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="feature.php">Feature</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        </ul>
+                    </div>
+                </aside>
 
-<section id="home" class="hero">
-<h1>Start Earning Online Today</h1>
-<p>Chat with foreigners, watch TikTok & YouTube videos, play quizzes, download apps and earn real money from anywhere in Uganda.</p>
-<a class="btn" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                <!--================== navigation drop search bar================-->
+                <div class="search" id="search-bar">
+                    <form class="d-flex nav-search">
+                        <input type="text" name="search" placeholder="Enter your text">
+                        <button class="btn-hover1" type="submit">Search</button>
+                    </form>
+                    <button id="remove-btn"><i class="fa-solid fa-square-xmark"></i></button>
+                </div>
+
+                <!--=================navigation Right slidebar==================-->
+                <section class="right-sidbar" id="right_side">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="p-0 visualsite-logo" href="index.php">VISUALSITE</a>
+                        <button class="close_right_sidebar fa-solid fa-xmark" onclick="close_right_sade()"></button>
+                    </div>
+                    <p class="mt-4 pb-3">Join VisualSite today and start earning from home through simple online tasks like chatting, watching videos, and more.</p>
+                    <a href="https://earntrix.com/user/register.php?ref=visualsite" class="btn-hover1" target="_blank">Discover More</a>
+                    <hr>
+                    <h5 class="mt-4 mb-4">Contact Details:</h5>
+                    <ul class="d-flex flex-column gap-3">
+                        <li><a href="#"><i class="fa-solid fa-phone"></i></a><a href="tel:+256791038883">+256791038883</a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i></a><a href="mailto:visualsite01@gmail.com">visualsite01@gmail.com</a></li>
+                        <li><a href="#"><i class="fa-solid fa-clock"></i></a><a href="#">Support Hours: 24/7</a></li>
+                    </ul>
+                    <span class="d-flex gap-4 mt-4">
+                        <a href="#" class="p-0"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="p-0"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="p-0"><i class="fa-brands fa-twitter"></i></a>
+                    </span>
+                </section>
+            </header>
+
+            <!-- ======== 1.2. hero section ======== -->
+            <section class="hero">
+                <div class="container">
+                    <div class="row text-md-start text-sm-center text-center gap-md-0 gap-sm-4 gap-5">
+                        <div data-aos="fade-up" class="col-md-6 d-flex align-items-md-start align-items-sm-center align-items-center justify-content-center flex-column">
+                            <h1>START EARNING ONLINE TODAY</h1>
+                            <p>Discover a fun and flexible way to make money from home with VisualSite. Engage in tasks like chatting with people worldwide, watching videos, or playing trivia quizzes to earn rewards.</p>
+                            <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paypath Services Section -->
+            <section class="services">
+                <div class="container">
+                    <div class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center sevices_img" data-aos="fade-up">
+                        <div class="position-relative">
+                            <div class="social-rating">
+                                <div class="d-flex"><div class="d-flex"><span><i class="fa-brands fa-youtube"></i></span><div><h6>Youtube Earnings</h6></div></div><div class="d-flex text-green"><p>+UGX</p><p class="count">300000</p></div></div>
+                                <div class="d-flex"><div class="d-flex"><span><i class="fa-brands fa-facebook"></i></span><div><h6>Chat Earnings</h6></div></div><div class="d-flex text-green"><p>+UGX</p><p class="count">210000</p></div></div>
+                                <div class="d-flex"><div class="d-flex"><span><i class="fa-brands fa-pinterest-p"></i></span><div><h6>Fixed Tap Earnings</h6></div></div><div class="d-flex text-green"><p>+UGX</p><p class="count">140000</p></div></div>
+                                <div class="d-flex"><div class="d-flex"><span><i class="fa-brands fa-twitter"></i></span><div><h6>Trivia Earnings</h6></div></div><div class="d-flex text-green"><p>+UGX</p><p class="count">510000</p></div></div>
+                            </div>
+                            <figure><img src="assets/images/IMG_3480[1].PNG" alt="sevice_img2"></figure>
+                            <figure><img src="assets/images/icon/whitStar.png" alt="sevice_img3"></figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =================================== -->
+            <!-- EARNING OPPORTUNITIES SECTION (WITH GOLDEN ICONS) -->
+            <!-- =================================== -->
+            <section class="finance">
+                <div class="container text-center">
+                    <h2>EARN MONEY WITH VISUALSITE</h2>
+                    <p class="mt-0">Explore a variety of ways to earn money online with VisualSite. From chatting with people worldwide to watching videos and completing simple tasks, there's something for everyone.</p>
+                    <div class="finanes-card row gap-md-0 gap-sm-4 gap-4">
+
+                        <!-- 1. Chat with Foreigners -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-comment-dots icon"></i>
+                                <h4>Chat with Foreigners</h4>
+                                <p class="p-f-s">Connect with users globally in real-time text chats. Earn per minute based on conversation length, engagement quality, and user ratings. The longer and more interactive the chat, the higher your payout!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 2. TikTok Videos -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-brands fa-tiktok icon"></i>
+                                <h4>TikTok Videos</h4>
+                                <p class="p-f-s">Watch curated TikTok videos and complete actions like viewing full clips, liking, commenting, or sharing. Earn fixed rewards per completed task — perfect for short, fun breaks!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. YouTube Videos -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-brands fa-youtube icon"></i>
+                                <h4>YouTube Videos</h4>
+                                <p class="p-f-s">Watch full YouTube videos from partnered creators. Earn by completing watch time goals, leaving meaningful comments, or rating content. Higher earnings for longer videos!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Trivia Quizzes -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-question-circle icon"></i>
+                                <h4>Trivia Quizzes</h4>
+                                <p class="p-f-s">Answer multiple-choice trivia questions on topics like history, pop culture, and science. Earn per correct answer — streak bonuses for consecutive right answers!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Watch Movies -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-film icon"></i>
+                                <h4>Watch Movies</h4>
+                                <p class="p-f-s">Stream movie trailers, short films, or full episodes. Earn rewards by watching till the end and submitting a quick review or rating. Great for movie lovers!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Messaging App Views -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-message icon"></i>
+                                <h4>Messaging App Views</h4>
+                                <p class="p-f-s">View promotional messages, images, or videos shared via messaging campaigns. Earn per verified view or interaction — simple and easy!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 7. Download Apps -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-mobile-alt icon"></i>
+                                <h4>Download Apps</h4>
+                                <p class="p-f-s">Download and install new apps from trusted partners. Earn by reaching milestones like signing up, completing tutorials, or using the app for 3+ days.</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 8. Online Music Streaming -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-music icon"></i>
+                                <h4>Online Music Streaming</h4>
+                                <p class="p-f-s">Listen to curated playlists on partnered music platforms. Earn per song or full playlist completed — ideal for background earning while relaxing!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 9. Ad Clicking -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-hand-pointer icon"></i>
+                                <h4>Ad Clicking</h4>
+                                <p class="p-f-s">Click and view sponsored ads for 10–30 seconds. Earn per verified click with daily limits. Simple, fast, and reliable micro-earning method.</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 10. Daily Login Streaks -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center pe-lg-3 pe-md-0 pe-sm-3 pe-3">
+                            <div class="fin-card" data-aos="flip-up">
+                                <i class="fa-solid fa-calendar-check icon"></i>
+                                <h4>Daily Login Streaks</h4>
+                                <p class="p-f-s">Log in daily to build streaks and unlock escalating bonuses. Earn up to 10x rewards on 30-day streaks — consistency pays off!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+
+                        <!-- NEW: PAID GAMES -->
+                        <div class="col-lg-4 col-md-4 d-flex justify-content-center">
+                            <div class="fin-card paid-games" data-aos="flip-up">
+                                <i class="fa-solid fa-gamepad icon"></i>
+                                <h4>Paid Games</h4>
+                                <p class="p-f-s">Play exciting mobile games from top developers. Earn real money by reaching levels, completing challenges, or winning tournaments. Top players earn up to UGX 50,000+ daily!</p>
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Play & Earn</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======== 1.6. gateway section ======== -->
+            <section class="gateway">
+                <div class="container">
+                    <div class="row gap-lg-0 gap-md-0 gap-sm-4 gap-4">
+                        <div class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center" data-aos="fade-up">
+                            <div class="gateway-bg-img mt-5">
+                                <figure><img src="assets/images/VisualSite.png" alt="gate_img1" class="moving"></figure>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 text-md-start text-sm-center text-center" data-aos="fade-down">
+                            <h2>GET STARTED WITH VISUALSITE</h2>
+                            <p class="pt-lg-4 pt-md-3 pt-sm-2 pt-2">Join VisualSite in three simple steps to start earning money online from the comfort of your home.</p>
+                            <div class="gate mt-md-3 mt-sm-0 mt-4 d-flex flex-md-row flex-sm-column flex-column align-items-center">
+                                <figure class="d-flex align-items-center"><img src="assets/images/icon/gate-icon1.png" alt="gate-img1"></figure>
+                                <div class="account-text ms-3">
+                                    <h5 class="pb-2">Create Account</h5>
+                                    <p class="p-f-s">Sign up with your email and set up your profile to start earning.</p>
+                                </div>
+                            </div>
+                            <div class="gate d-flex mt-4 flex-md-row flex-sm-column flex-column align-items-center">
+                                <figure class="d-flex align-items-center"><img src="assets/images/icon/gate-icon2.png" alt="gate-img2"></figure>
+                                <div class="ms-3">
+                                    <h5 class="pb-2">Choose Tasks</h5>
+                                    <p class="p-f-s">Select from a variety of tasks like chatting, watching videos, or downloading apps.</p>
+                                </div>
+                            </div>
+                            <div class="gate d-flex mt-4 flex-md-row flex-sm-column flex-column align-items-center">
+                                <figure class="d-flex align-items-center"><img src="assets/images/icon/gate-icon3.png" alt="gate-img3"></figure>
+                                <div class="ms-3">
+                                    <h5 class="pb-2">Earn Rewards</h5>
+                                <p class="p-f-s">Complete tasks and earn money, which you can withdraw via your preferred payment method.</p>
+                                </div>
+                            </div>
+                            <div class="gate-link text-lg-start text-md-start text-sm-center text-center">
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======== 1.7. services section ======== -->
+            <section class="services">
+                <div class="container">
+                    <div class="row gap-md-0 gap-sm-4 gap-4">
+                        <div class="col-lg-6 col-md-6" data-aos="fade-down">
+                            <h2 class="text-lg-start text-md-start text-sm-center text-center">WHY CHOOSE VISUALSITE?</h2>
+                            <p class="text-lg-start text-md-start text-sm-center text-center mt-lg-4 mt-md-2 mt-sm-2 mt-2 pb-4">
+                                VisualSite offers flexible, fun, and rewarding ways to earn money online. Work on your own schedule and choose tasks that suit your interests.</p>
+                            <div class="d-flex justify-content-center gap-lg-4 gap-md-3 gap-sm-2 gap-2">
+                                <div class="offers">
+                                    <h5 class="mb-2">Flexible Schedule</h5>
+                                    <p class="p-f-s">Work anytime, anywhere, and earn money at your convenience.</p>
+                                </div>
+                                <div class="offers">
+                                    <h5 class="mb-2">No Hidden Fees</h5>
+                                    <p class="p-f-s">Keep what you earn with no hidden costs or deductions.</p>
+                                </div>
+                            </div>
+                            <div class="serives-btn justify-content-md-start justify-content-sm-center justify-content-center d-flex">
+                                <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank">Register Now</a>
+                                <div class="d-flex align-item-center">
+                                    <a class="ps-4" href="#">Learn More</a>
+                                    <i class="fa-solid fa-greater-than ps-md-3 ps-sm-1 ps-0"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center sevices_img" data-aos="fade-up">
+                            <div class="position-relative"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======== 1.8. where it works section ======== -->
+<section class="where-it-works py-5">
+    <div class="container">
+        <div class="section-title text-center mb-4">
+            <h3 class="wow fadeInUp" style="color:#fff !important;">Where It Works</h3>
+            <h2 class="text-anime-style-2" data-wow-delay="0.2s" style="color:#fff !important;">
+                Expanding across <span style="color:#00ff9d !important;">Africa</span>
+            </h2>
+            <p class="mt-3" style="color:#ffffff !important; opacity:0.95 !important;">
+                We are active in multiple regions of Africa, empowering thousands of users.
+            </p>
+        </div>
+        <div class="row text-center">
+            <!-- East Africa -->
+            <div class="col-md-3 col-6 mb-4">
+                <h4 class="mb-3" style="color:#fff !important;">East Africa</h4>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <img src="https://flagcdn.com/ug.svg" alt="Uganda" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/ke.svg" alt="Kenya" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/tz.svg" alt="Tanzania" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/rw.svg" alt="Rwanda" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/bi.svg" alt="Burundi" class="flag-icon" style="width: 32px; height: 21px;">
+                </div>
+            </div>
+            <!-- West Africa -->
+            <div class="col-md-3 col-6 mb-4">
+                <h4 class="mb-3" style="color:#fff !important;">West Africa</h4>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <img src="https://flagcdn.com/ng.svg" alt="Nigeria" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/gh.svg" alt="Ghana" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/sn.svg" alt="Senegal" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/ml.svg" alt="Mali" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/bf.svg" alt="Burkina Faso" class="flag-icon" style="width: 32px; height: 21px;">
+                </div>
+            </div>
+            <!-- Central Africa -->
+            <div class="col-md-3 col-6 mb-4">
+                <h4 class="mb-3" style="color:#fff !important;">Central Africa</h4>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <img src="https://flagcdn.com/cd.svg" alt="DR Congo" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/cm.svg" alt="Cameroon" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/cf.svg" alt="Central African Republic" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/gq.svg" alt="Equatorial Guinea" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/ga.svg" alt="Gabon" class="flag-icon" style="width: 32px; height: 21px;">
+                </div>
+            </div>
+            <!-- Southern Africa -->
+            <div class="col-md-3 col-6 mb-4">
+                <h4 class="mb-3" style="color:#fff !important;">Southern Africa</h4>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <img src="https://flagcdn.com/za.svg" alt="South Africa" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/zm.svg" alt="Zambia" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/bw.svg" alt="Botswana" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/mw.svg" alt="Malawi" class="flag-icon" style="width: 32px; height: 21px;">
+                    <img src="https://flagcdn.com/na.svg" alt="Namibia" class="flag-icon" style="width: 32px; height: 21px;">
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a class="btn-hover1" href="https://earntrix.com/user/register.php?ref=visualsite" target="_blank" style="color:#fff !important; border-color:#fff !important;">
+                Register Now
+            </a>
+        </div>
+    </div>
 </section>
 
-<section id="earn">
-<h2 style="text-align:center">Ways You Earn on VisualSite</h2>
-<div class="cards">
-<div class="card"><i class="fa-solid fa-comments"></i><h3>Chat with Foreigners</h3><p>Earn per minute chatting with global users.</p></div>
-<div class="card"><i class="fa-brands fa-tiktok"></i><h3>TikTok Videos</h3><p>Watch & interact with short videos.</p></div>
-<div class="card"><i class="fa-brands fa-youtube"></i><h3>YouTube</h3><p>Earn by watching full videos.</p></div>
-<div class="card"><i class="fa-solid fa-question"></i><h3>Trivia Quizzes</h3><p>Answer questions and earn per correct answer.</p></div>
-<div class="card"><i class="fa-solid fa-download"></i><h3>Download Apps</h3><p>Install apps & complete tasks.</p></div>
-<div class="card"><i class="fa-solid fa-gamepad"></i><h3>Paid Games</h3><p>Play games and earn up to UGX 50,000+ daily.</p></div>
-</div>
-</section>
+            <!-- ======== 1.9. professional section ======== -->
+            <section class="profaessional">
+                <div class="container">
+                    <h2 class="text-center">TRUSTED BY USERS</h2>
+                    <p class="text-center pt-3 pb-5 mb-2">Thousands of users across Africa trust VisualSite to earn money through simple and engaging online tasks.</p>
+                    <div class="prof-size" data-aos="zoom-in-up">
+                        <div class="prof-slider">
+                            <div class="prof-slide position-relative">
+                                <div><div class="d-flex align-items-center justify-content-center"><img src="assets/images/images (1).jpeg" alt="img" class="prof-img-2"></div>
+                                <div><img src="assets/images/slider/Comma.png" alt="img" class="prof-img-1"></div>
+                                <p class="text-center p-f-s">VisualSite has been a game-changer for me. I earn extra cash by chatting and watching videos in my free time!</p>
+                                <div class="prof-star pt-2 pb-2 text-center"><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></div>
+                                <h5 class="text-center">Aisha Okeke</h5><p class="text-center pt-2 pb-5 p-f-s">Freelancer</p></div>
+                            </div>
+                            <div class="prof-slide position-relative">
+                                <div><div class="d-flex align-items-center justify-content-center"><img src="assets/images/man1.jpg" alt="img" class="prof-img-2"></div>
+                                <div><img src="assets/images/slider/Comma.png" alt="img" class="prof-img-1"></div>
+                                <p class="text-center p-f-s">The trivia quizzes are fun, and I love that I can earn money while learning new things!</p>
+                                <div class="prof-star pt-2 pb-2 text-center"><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></div>
+                                <h5 class="text-center">Kwame Mensah</h5><p class="text-center pt-2 pb-5 p-f-s">Student</p></div>
+                            </div>
+                            <div class="prof-slide position-relative">
+                                <div><div class="d-flex align-items-center justify-content-center"><img src="assets/images/dddddddd.jpg" alt="img" class="prof-img-2"></div>
+                                <div><img src="assets/images/slider/Comma.png" alt="img" class="prof-img-1"></div>
+                                <p class="text-center p-f-s">VisualSite makes it easy to earn money by doing simple tasks like downloading apps. Highly recommend!</p>
+                                <div class="prof-star pt-2 pb-2 text-center"><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></div>
+                                <h5 class="text-center">Fatima Njeri</h5><p class="text-center pt-2 pb-5 p-f-s">Entrepreneur</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<section id="how">
-<h2 style="text-align:center">How It Works</h2>
-<div class="cards">
-<div class="card"><h3>1. Register</h3><p>Create your free account in minutes.</p></div>
-<div class="card"><h3>2. Do Tasks</h3><p>Choose tasks you like and complete them.</p></div>
-<div class="card"><h3>3. Withdraw</h3><p>Cash out via MTN MoMo, Airtel Money or Bank.</p></div>
-</div>
-</section>
+            <!-- ======== 1.10. question section ======== -->
+            <section class="question">
+                <div class="container">
+                    <div class="row">
+                        <div class="question-text col-lg-6 col-md-6 tab-center" data-aos="fade-up">
+                            <h2 class="text-lg-start text-md-start text-sm-center text-center">FREQUENTLY ASKED QUESTIONS</h2>
+                            <p class="text-lg-start text-md-start text-sm-center text-center mt-md-3 mt-3">Find answers to common questions about earning money with VisualSite and how to get started.</p>
+                            <div class="text-lg-start text-md-start text-sm-center text-center">
+                                <a class="btn-hover1" href="faq.php">More FAQs</a>
+                            </div>
+                        </div>
+                        <div class="question-collapes col-lg-6 col-md-6 mt-md-0 mt-sm-3 mt-3" data-aos="zoom-in">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            How do I start earning with VisualSite?
+                                        </button>
+                                    </h5>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Sign up with your email, complete your profile, and choose from a variety of tasks like chatting, watching videos, or playing quizzes to start earning.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            What types of tasks are available?
+                                        </button>
+                                    </h5>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>VisualSite offers tasks like chatting with foreigners, watching TikTok/YouTube videos, playing trivia quizzes, downloading apps, and more.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            How do I withdraw my earnings?
+                                        </button>
+                                    </h5>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Earnings can be withdrawn via mobile money, bank transfer, or other payment methods available in your country once you reach the minimum threshold.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            How can I contact support?
+                                        </button>
+                                    </h5>
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Reach out to our 24/7 support team via email at <span id="faqEmail">visualsite01@gmail.com</span> or through our contact page.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<section id="faq">
-<h2 style="text-align:center">Frequently Asked Questions</h2>
-<p><strong>Is VisualSite free?</strong><br>Yes, registration is 100% free.</p>
-<p><strong>Do you guarantee income?</strong><br>No. Earnings depend on time, effort & available tasks.</p>
-<p><strong>How do I get support?</strong><br>Via WhatsApp or email — 24/7.</p>
-</section>
+            <!-- ======== 1.12. about section ======== -->
+            <section class="about">
+                <div class="container">
+                    <div class="row text-md/St-start text-sm-center text-center">
+                        <div class="col-md-6 d-flex justify-content-between">
+                            <div class="ab_card1" data-aos="flip-left">
+                                <h3>About VisualSite</h3>
+                                <p class="p-f-s">VisualSite is a platform designed to help you earn money online through simple and engaging tasks. From chatting with people worldwide to watching videos and playing quizzes, we provide multiple ways to earn from home.</p>
+                                <div class="d-flex align-items-center justify-content-lg-start justify-content-md-center justify-content-center">
+                                    <a class="btn-hover1" href="about.php">Learn More</a>
+                                    <div class="abut-video">
+                                        <a class="video-play-button" href="#"><span class="fa-solid fa-play"></span></a>
+                                    </div>
+                                    <div class="p-f-s w-v">Watch Video</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-center mt-md-0 mt-sm-3 mt-3">
+                            <div class="ab_card2 d-flex flex-column justify-content-between" data-aos="flip-right">
+                                <div>
+                                    <div class="row gap-md-0 gap-sm-3 gap-3">
+                                        <div class="col-md-5 col-sm-12 col-12">
+                                            <div class="d-flex justify-content-md-start justify-content-sm-center justify-content-center">
+                                                <h3 class="count">10</h3><h3>K+</h3>
+                                            </div>
+                                            <p class="p-f-s">Users have joined VisualSite to earn money online!</p>
+                                        </div>
+                                        <div class="col-2 p-0 d-flex justify-content-center align-items-center"><hr></div>
+                                        <div class="col-md-5 col-sm-12 col-12 p-0">
+                                            <h3>100%</h3><p class="p-f-s">Legit and Trusted.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3 mt-4 gap-4 justify-content-md-start justify-content-sm-center justify-content-center">
+                                    <div class="position-relative"></div>
+                                    <div class="ps-2">
+                                        <span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                                        <p>Trusted by users across Africa!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<footer id="contact">
-<h3>Contact VisualSite</h3>
-<p><i class="fa-solid fa-phone"></i> +256 791 038 883</p>
-<p><i class="fa-solid fa-envelope"></i> visualsite01@gmail.com</p>
-<p><i class="fa-solid fa-clock"></i> Support: 24/7</p>
+            <!-- ======== 1.13. footer section ======== -->
+            <footer class="position-relative">
+                <div class="container">
+                    <div class="footer-logo text-center pb-lg-4 pb-md-3 pb-sm-2 pb-4">
+                        <a href="index.php" class="visualsite-logo">VISUALSITE</a>
+                    </div>
+                    <ul class="d-flex align-items-center justify-content-center gap-4 mb-4">
+                        <li><a href="#">Feature</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Faq</a></li>
+                    </ul>
+                    <hr>
+                    <div class="row footer-nav-icon align-items-center">
+                        <div class="col-lg-3 col-md-3 d-flex justify-content-center justify-content-md-start">
+                            <div class="social-icon d-flex gap-3">
+                                <a href="#"><i class="fa-brands fa-facebook-f foot-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 text-center">
+                            <div class="d-flex gap-3 justify-content-center p-2 flex-wrap">
+                                <a href="#">Terms & Condition</a>
+                                <a href="#">Privacy Policy</a>
+                            </div>
+                        </div>
+                        <!-- ======== PAYMENT LOGOS ======== -->
+                        <div class="col-lg-3 col-md-3">
+                            <div class="payment-logos">
+                                <img src="assets/images/MoMo.jpg" alt="MoMo" class="payment-logo-big">
+                                <img src="assets/images/mpesa.png" alt="mpesa" class="payment-logo-big">
+                                <img src="assets/images/opay.webp" alt="opay" class="payment-logo-big">
+                                <img src="assets/images/airtel.png" alt="airtel" class="payment-logo-big">
+                                <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" alt="Stripe" class="payment-logo-big">
+                                <img src="https://www.vectorlogo.zone/logos/paypal/paypal-icon.svg" alt="PayPal" class="payment-logo-big">
+                                <img src="assets/images/orange money.png" alt="orange money" class="payment-logo-big">
+                                <img src="https://www.vectorlogo.zone/logos/payoneer/payoneer-icon.svg" alt="Payoneer" class="payment-logo-big">
+                                <img src="assets/images/Vodapay.png" alt="Vodapay" class="payment-logo-big">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CONTACT SECTION -->
+                    <div class="footer-contact text-center text-md-start">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <h5><i class="fa-solid fa-envelope"></i> Email</h5>
+                                <p><a href="mailto:visualsite01@gmail.com">visualsite01@gmail.com</a></p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h5><i class="fa-solid fa-phone"></i> Phone</h5>
+                                <p><a href="tel:+256791038883">+256791038883</a></p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h5><i class="fa-solid fa-location-dot"></i> Location</h5>
+                                <p>Kampala, Uganda</p>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="license">
-<strong>Legal & License</strong><br>
-VisualSite is a digital advertising & engagement platform.  
-We do not guarantee income. Earnings depend on third-party advertisers, user activity and regional availability.  
-All trademarks belong to their respective owners.  
-© 2026 VisualSite. All rights reserved.
-</div>
-</footer>
+                    <hr>
+                    <div class="Copyright d-flex justify-content-between flex-wrap text-center text-md-start">
+                        <p>Copyright © 2025 VisualSite by VisualSite. All Right Reserved.</p>
+                        <p>Powered by Scitech</p>
+                    </div>
+                </div>
+            </footer>
 
-<a class="whatsapp" href="https://wa.me/256791038883" target="_blank">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp Support
-</a>
+            <!-- PREMIUM WHATSAPP BUTTON -->
+            <div class="whatsapp-btn-container">
+                <a href="https://wa.me/256791038883?text=Hello%20VisualSite%20Team,%20I%20need%20assistance%20with%20earning%20on%20your%20platform" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp whatsapp-icon"></i>
+                    <div class="btn-content">
+                        <div class="btn-title">Chat with Us</div>
+                        <div class="btn-subtitle">Get instant assistance</div>
+                    </div>
+                    <div class="badge">1</div>
+                </a>
+            </div>
 
+            <!-- Back to Top -->
+            <button onclick="scrollToTop()" id="backToTopBtn"><i class="fa-solid fa-arrow-turn-up"></i></button>
+
+            <!-- ====== ADMIN & SITE JAVASCRIPT ====== -->
+            <script>
+                // Hidden Admin Trigger - Click logo 7 times
+                let adminClickCount = 0;
+                let adminClickTimer;
+                const adminTrigger = document.getElementById('adminTrigger');
+                const siteLogo = document.getElementById('siteLogo');
+                
+                function handleAdminTrigger() {
+                    adminClickCount++;
+                    
+                    // Visual feedback
+                    adminTrigger.classList.add('active');
+                    setTimeout(() => {
+                        adminTrigger.classList.remove('active');
+                    }, 300);
+                    
+                    // Reset counter after 3 seconds
+                    clearTimeout(adminClickTimer);
+                    adminClickTimer = setTimeout(() => {
+                        adminClickCount = 0;
+                    }, 3000);
+                    
+                    // Check for 7 clicks
+                    if (adminClickCount === 7) {
+                        adminClickCount = 0;
+                        // Redirect to admin login
+                        window.location.href = 'admin.php';
+                    }
+                }
+                
+                // Attach click handler to trigger area
+                adminTrigger.addEventListener('click', handleAdminTrigger);
+                
+                // Alternative: Click logo 7 times
+                siteLogo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleAdminTrigger();
+                });
+                
+                // Keyboard shortcut (Ctrl+Shift+A)
+                document.addEventListener('keydown', function(e) {
+                    if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                        e.preventDefault();
+                        window.location.href = 'admin.php';
+                    }
+                });
+                
+                // WhatsApp button ripple effect
+                const whatsappButton = document.querySelector('.whatsapp-btn');
+                if (whatsappButton) {
+                    whatsappButton.addEventListener('click', function(e) {
+                        const ripple = document.createElement('span');
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.cssText = `
+                            position: absolute;
+                            border-radius: 50%;
+                            background: rgba(255, 255, 255, 0.6);
+                            transform: scale(0);
+                            animation: ripple 0.6s linear;
+                            width: ${size}px;
+                            height: ${size}px;
+                            top: ${y}px;
+                            left: ${x}px;
+                            pointer-events: none;
+                        `;
+                        
+                        this.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 600);
+                    });
+                }
+                
+                // Back to top function
+                function scrollToTop() { 
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                }
+                
+                // Initialize on page load
+                document.addEventListener('DOMContentLoaded', function() {
+                    console.log('VisualSite loaded successfully');
+                    console.log('Referral link: https://earntrix.com/user/register.php?ref=visualsite');
+                    console.log('WhatsApp: +256791038883');
+                    
+                    // Auto-update dynamic content every 5 seconds (for testing)
+                    // setInterval(() => {
+                    //     // This would reload settings if they change
+                    // }, 5000);
+                });
+            </script>
+
+            <!-- External Scripts -->
+            <script src="assets/js/javascript-lib/bootstrap.min.js"></script>
+            <script src="assets/js/jquery.js"></script>
+            <script src="assets/js/slick.min.js"></script>
+            <script src="assets/js/custom.js"></script>
+            <script src="assets/js/waypoints.min.js"></script>
+            <script src="assets/js/aos.js"></script>
+            <script>
+                AOS.init({ once: true, duration: 1500 });
+            </script>
+        </div>
+    </div>
 </body>
 </html>
