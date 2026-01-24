@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -273,6 +274,10 @@
   height: auto !important;
   overflow-y: auto !important;
   overflow-x: hidden;
+        }
+        html, body {
+  overflow-y: auto !important;
+  height: auto !important;
         }
         /* Testimonial */
         .testimonial-card {
@@ -951,20 +956,8 @@
         document.getElementById('minutes').textContent = m.toString().padStart(2,'0');
         document.getElementById('seconds').textContent = s.toString().padStart(2,'0');
     }, 1000);
+<!-- your other scripts -->
 
-    // Anti-zoom & anti-scroll
-    document.documentElement.style.overflowX = 'hidden';
-    document.body.style.overflowX = 'hidden';
-    document.body.style.touchAction = 'pan-y';
-
-    document.addEventListener('touchstart', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', e => {
-        const now = Date.now();
-        if (now - lastTouchEnd <= 300) e.preventDefault();
-        lastTouchEnd = now;
-    }, false);
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"b20276611e094189b13353d786714554","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/..." crossorigin="anonymous"></script>
 </body>
 </html>
