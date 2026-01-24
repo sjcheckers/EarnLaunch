@@ -1,0 +1,237 @@
+/* ===============================
+   GLOBAL RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: #f4f8fc;
+  color: #1f2937;
+  line-height: 1.7;
+}
+
+/* ===============================
+   COLOR SYSTEM
+================================ */
+:root {
+  --primary: #0ea5e9;      /* light blue */
+  --primary-dark: #0284c7;
+  --accent: #22c55e;      /* green */
+  --dark: #0f172a;
+  --muted: #64748b;
+  --bg-soft: #eef6ff;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+header {
+  background: linear-gradient(90deg, #0f172a, #020617);
+}
+
+.navbar .nav-link {
+  color: #e5e7eb !important;
+  font-weight: 500;
+  padding: 10px 14px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero {
+  background: linear-gradient(
+      rgba(2, 6, 23, 0.7),
+      rgba(2, 6, 23, 0.7)
+    ),
+    linear-gradient(120deg, #0ea5e9, #22c55e);
+  padding: 110px 0;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 46px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 520px;
+  opacity: 0.95;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn-hover1 {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 14px 34px;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.btn-hover1:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+/* ===============================
+   SECTION SPACING
+================================ */
+section {
+  padding: 90px 0;
+}
+
+/* ===============================
+   SERVICES / CARDS
+================================ */
+.fin-card,
+.offers,
+.ab_card1,
+.ab_card2 {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition: all 0.35s ease;
+}
+
+.fin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+.fin-card i.icon {
+  font-size: 38px;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.fin-card h4 {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.p-f-s {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ===============================
+   FINANCE SECTION
+================================ */
+.finance {
+  background: var(--bg-soft);
+}
+
+.finance h2 {
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+/* ===============================
+   GATEWAY
+================================ */
+.gateway {
+  background: linear-gradient(180deg, #ffffff, #f1f7ff);
+}
+
+.gateway h2 {
+  font-weight: 800;
+}
+
+.gate {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+/* ===============================
+   WHERE IT WORKS
+================================ */
+.where-it-works {
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+.where-it-works h4 {
+  font-weight: 700;
+}
+
+/* ===============================
+   TESTIMONIALS
+================================ */
+.profaessional {
+  background: #f8fafc;
+}
+
+.prof-slide {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+/* ===============================
+   FAQ
+================================ */
+.question {
+  background: var(--bg-soft);
+}
+
+.accordion-item {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.accordion-button {
+  font-weight: 600;
+  background: #ffffff;
+}
+
+/* ===============================
+   ABOUT
+================================ */
+.about {
+  background: #ffffff;
+}
+
+/* ===============================
+   FOOTER / CONTACT
+================================ */
+.footer-contact {
+  background: linear-gradient(135deg, #020617, #0f172a);
+}
+
+/* ===============================
+   WHATSAPP FLOATING BUTTON
+================================ */
+.whatsapp-btn-container {
+  z-index: 99999;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+}
