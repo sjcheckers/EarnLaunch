@@ -1,1 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EC X STORE - User Panel</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', sans-serif; 
+        }
+        
+        :root { 
+            --bg: #050505; 
+            --card: #111; 
+            --neon: #00ff41; 
+            --neon-glow: rgba(0, 255, 65, 0.7);
+            --text: #fff; 
+            --gray: #666; 
+        }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            overflow-x: hidden; 
+            padding-bottom: 90px;
+        }
 
+        /* LOGIN PAGE */
+        #login-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            background: var(--bg);
+        }
+
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .login-title {
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            color: var(--neon);
+            font-size: 28px;
+        }
+
+        .login-input {
+            width: 100%;
+            height: 65px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            outline: none;
+            padding: 0 20px;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 60px;
+            background: var(--neon);
+            border: none;
+            border-radius: 20px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #000;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #00cc33;
+            box-shadow: 0 0 20px var(--neon-glow);
+        }
+
+        .trial-note {
+            color: #444;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .trial-code {
+            color: #666;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        /* GRID VIEW */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .grid-app-card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #1a1a1a;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .grid-app-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        }
+        
+        .grid-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #000;
+            border: 2px solid #222;
+        }
+        
+        .grid-app-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+        
+        .grid-app-type {
+            font-size: 10px;
+            color: var(--neon);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* DETAILS MODAL */
+        #details-modal { 
+            position: fixed; 
+            inset: 0; 
+            background: var(--bg); 
+            z-index: 200; 
+            display: none; 
+            padding: 20px; 
+            overflow-y: auto; 
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp { 
+            from { transform: translateY(100%); } 
+            to { transform: translateY(0); } 
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .close-btn {
+            color: var(--gray);
+            background: none;
+            border: none;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .app-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .app-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--neon);
+        }
+
+        .app-info h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .app-type {
+            color: var(--neon);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* SCREENSHOTS CONTAINER - FIXED */
+        .screenshots-container {
+            margin: 25px 0;
+            padding-bottom: 15px;
+        }
+
+        .screenshots-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: var(--neon);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            width: 100%;
+        }
+
+        .screenshot-item {
+            width: 100%;
+            height: 280px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid #333;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.05);
+        }
+
+        .no-screenshot {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .app-description {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        /* CIRCULAR DOWNLOAD */
+        .circular-download-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .circular-progress {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+        
+        .circular-progress svg {
+            width: 160px;
+            height: 160px;
+            transform: rotate(-90deg);
+        }
+        
+        .circular-progress circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            transform-origin: center;
+        }
+        
+        .circular-progress-bg {
+            stroke: #222;
+        }
+        
+        .circular-progress-bar {
+            stroke: var(--neon);
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+            transition: stroke-dashoffset 0.3s ease;
+            filter: drop-shadow(0 0 8px var(--neon-glow));
+        }
+        
+        .circular-progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .circular-progress-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--neon);
+            text-shadow: 0 0 10px var(--neon-glow);
+        }
+        
+        .circular-progress-label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        
+        .download-button-text {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--neon);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .restriction-banner {
+            color: #ff4444;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 68, 68, 0.1);
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* MAIN PAGE */
+        #main-page {
+            display: none;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        .page-header {
+            font-weight: 900;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .neon-text {
+            color: var(--neon);
+        }
+
+        /* SLIDER */
+        .viewpager {
+            width: 100%;
+            height: 150px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            position: relative;
+            border: 1px solid #222;
+        }
+        
+        .slider-inner {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: 0.5s;
+        }
+        
+        .slide {
+            width: 33.33%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            background: linear-gradient(45deg, #004d13, #050505);
+        }
+
+        .slide:nth-child(2) {
+            background: linear-gradient(45deg, #4d0000, #050505);
+        }
+
+        .slide:nth-child(3) {
+            background: linear-gradient(45deg, #001a4d, #050505);
+        }
+
+        .slide h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .slide p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* SEARCH */
+        .search-box {
+            width: 100%;
+            height: 50px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 0 15px;
+            color: white;
+            margin-bottom: 20px;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .search-box:focus {
+            border-color: var(--neon);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            height: 70px;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border: 1px solid #222;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 50;
+        }
+        
+        .nav-item {
+            color: var(--gray);
+            font-size: 10px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .nav-item.active {
+            color: var(--neon);
+        }
+        
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        /* LOADER */
+        #splash {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #111;
+            border-top: 3px solid var(--neon);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .grid-app-card {
+                padding: 12px;
+            }
+            
+            .grid-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .screenshot-item {
+                height: 250px;
+            }
+            
+            .app-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .app-icon-large {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--gray);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .empty-state-text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash">
+        <div class="loader"></div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login-page">
+        <div class="login-container">
+            <h1 class="login-title">EC X STORE</h1>
+            <input id="pin-input" type="password" class="login-input" placeholder="ENTER ACCESS PIN">
+            <button id="login-btn" onclick="handleLogin()" class="login-btn">AUTHORIZE</button>
+            <div class="trial-note">
+                TRIAL ACCESS: <span class="trial-code">TRIAL24</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN PAGE -->
+    <div id="main-page">
+        <div class="page-header">
+            EC X <span class="neon-text">PRO</span>
+        </div>
+        
+        <!-- SLIDER -->
+        <div class="viewpager">
+            <div class="slider-inner" id="main-slider">
+                <div class="slide">
+                    <h3>ANTIBAN V2</h3>
+                    <p>Status: Undetected</p>
+                </div>
+                <div class="slide">
+                    <h3>NEW SCRIPTS</h3>
+                    <p>Updated for 2026</p>
+                </div>
+                <div class="slide">
+                    <h3>VIP ACCESS</h3>
+                    <p>Contact Admin</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH -->
+        <input type="text" id="searchBar" class="search-box" placeholder="Search modules...">
+
+        <!-- APPS GRID -->
+        <div id="app-grid" class="grid-container">
+            <!-- Apps will be loaded here -->
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">📱</div>
+            <div class="empty-state-text">No apps found. Try a different search.</div>
+        </div>
+    </div>
+
+    <!-- DETAILS MODAL -->
+    <div id="details-modal">
+        <div class="modal-header">
+            <button onclick="closeDetails()" class="close-btn">✕</button>
+        </div>
+
+        <div class="app-header">
+            <img id="det-icon" class="app-icon-large" src="" onerror="this.src='https://via.placeholder.com/80x80/111/00ff41?text=APP'">
+            <div class="app-info">
+                <h2 id="det-title">App Name</h2>
+                <div class="app-type" id="det-type">TYPE</div>
+            </div>
+        </div>
+
+        <!-- FIXED SCREENSHOTS SECTION -->
+        <div class="screenshots-container">
+            <div class="screenshots-title">
+                <span>🖼️</span> SCREENSHOTS
+            </div>
+            <div class="screenshots-grid" id="det-ss">
+                <!-- Screenshots will be loaded here -->
+            </div>
+        </div>
+
+        <div class="app-description" id="det-desc">
+            App description will appear here...
+        </div>
+        
+        <!-- DOWNLOAD SECTION -->
+        <center>
+            <div class="circular-download-container" onclick="startCircularDownload()">
+                <div class="circular-progress">
+                    <svg>
+                        <circle class="circular-progress-bg" cx="80" cy="80" r="70"></circle>
+                        <circle class="circular-progress-bar" id="circularProgressBar" cx="80" cy="80" r="70"></circle>
+                    </svg>
+                    <div class="circular-progress-text">
+                        <div class="circular-progress-value" id="circularProgressValue">0%</div>
+                        <div class="circular-progress-label" id="circularProgressLabel">Tap to Download</div>
+                    </div>
+                </div>
+                <div class="download-button-text" id="downloadButtonText">
+                    DOWNLOAD WITH NEON GROWING
+                </div>
+            </div>
+            <div class="restriction-banner" id="restrict-banner">
+                ⚠️ EXPIRED OR TRIAL ACCOUNT
+            </div>
+        </center>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="bottom-nav" style="display:none;">
+        <div class="nav-item active" onclick="showPage('store')">
+            <div class="nav-icon">📱</div>
+            <div>STORE</div>
+        </div>
+        <div class="nav-item" onclick="showPage('chat')">
+            <div class="nav-icon">💬</div>
+            <div>CHAT</div>
+        </div>
+        <div class="nav-item" onclick="showPage('scripts')">
+            <div class="nav-icon">📜</div>
+            <div>SCRIPTS</div>
+        </div>
+    </nav>
+
+    <script>
+        // SheetsDB API Configuration
+        const SHEETSDB_API = "https://sheetdb.io/api/v1/6m43y038l7zws";
+        let isTrial = false;
+        let currentApp = null;
+        let appsData = [];
+        let currentDownloadInterval = null;
+
+        // Hide splash screen after 1.5 seconds
+        setTimeout(() => {
+            document.getElementById('splash').style.display = 'none';
+        }, 1500);
+
+        // Auto-slide banner
+        let slideIndex = 0;
+        const sliderInterval = setInterval(() => {
+            slideIndex = (slideIndex + 1) % 3;
+            document.getElementById('main-slider').style.transform = `translateX(-${slideIndex * 33.33}%)`;
+        }, 4000);
+
+        // Login Function
+        async function handleLogin() {
+            const pinInput = document.getElementById('pin-input');
+            const loginBtn = document.getElementById('login-btn');
+            const pin = pinInput.value.trim();
+            
+            if (pin.toLowerCase() === "trial24") {
+                isTrial = true;
+                enterStore();
+                return;
+            }
+
+            loginBtn.textContent = "VERIFYING...";
+            loginBtn.disabled = true;
+
+            try {
+                // Check pin in SheetsDB
+                const response = await fetch(`${SHEETSDB_API}/search?pin=${encodeURIComponent(pin)}`);
+                const data = await response.json();
+                
+                if (data.length > 0) {
+                    const pinData = data[0];
+                    
+                    // Check expiry
+                    if (pinData.expiry) {
+                        const today = new Date();
+                        const expiryDate = new Date(pinData.expiry);
+                        
+                        if (today > expiryDate) {
+                            alert("PIN EXPIRED!");
+                            resetLogin();
+                            return;
+                        }
+                    }
+                    
+                    isTrial = false;
+                    enterStore();
+                } else {
+                    alert("INVALID PIN");
+                    resetLogin();
+                }
+            } catch (error) {
+                alert("NETWORK ERROR: Check connection");
+                console.error("Login error:", error);
+                resetLogin();
+            }
+        }
+
+        function resetLogin() {
+            document.getElementById('login-btn').textContent = "AUTHORIZE";
+            document.getElementById('login-btn').disabled = false;
+        }
+
+        function enterStore() {
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+            document.getElementById('bottom-nav').style.display = 'flex';
+            loadApps();
+        }
+
+        // Load Apps from SheetsDB
+        async function loadApps() {
+            try {
+                const response = await fetch(SHEETSDB_API);
+                const allData = await response.json();
+                
+                // Filter apps (exclude pins and chats)
+                appsData = allData.filter(item => 
+                    item && item.name && !item.pin && !item.message
+                );
+                
+                renderGridApps(appsData);
+            } catch (error) {
+                console.error("Error loading apps:", error);
+                showErrorState();
+            }
+        }
+
+        function renderGridApps(apps) {
+            const grid = document.getElementById('app-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (apps.length === 0) {
+                grid.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            emptyState.style.display = 'none';
+            grid.innerHTML = '';
+            
+            apps.forEach((app, index) => {
+                const card = document.createElement('a');
+                card.className = 'grid-app-card';
+                card.onclick = (e) => {
+                    e.preventDefault();
+                    openDetails(index);
+                };
+                
+                card.innerHTML = `
+                    <img class="grid-icon" 
+                         src="${app.icon || 'https://via.placeholder.com/70x70/111/00ff41?text=APP'}" 
+                         onerror="this.src='https://via.placeholder.com/70x70/111/00ff41?text=APP'">
+                    <div class="grid-app-title">${app.name}</div>
+                    <div class="grid-app-type">${(app.type || 'APP').toUpperCase()}</div>
+                    <div style="font-size: 9px; color: #555;">Tap to view</div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        function showErrorState() {
+            const grid = document.getElementById('app-grid');
+            grid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--gray);">
+                    <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
+                    <div style="font-size: 16px; margin-bottom: 10px;">Connection Error</div>
+                    <div style="font-size: 12px;">Unable to load apps. Please check your connection.</div>
+                    <button onclick="loadApps()" style="margin-top: 20px; padding: 10px 20px; background: var(--neon); color: #000; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">
+                        Retry
+                    </button>
+                </div>
+            `;
+        }
+
+        // Search Function
+        function filterApps() {
+            const term = document.getElementById('searchBar').value.toLowerCase();
+            const filtered = appsData.filter(app => 
+                app.name.toLowerCase().includes(term) ||
+                (app.type && app.type.toLowerCase().includes(term)) ||
+                (app.desc && app.desc.toLowerCase().includes(term))
+            );
+            renderGridApps(filtered);
+        }
+
+        // Update search event listener
+        document.getElementById('searchBar').addEventListener('input', filterApps);
+
+        // App Details Functions
+        function openDetails(index) {
+            currentApp = appsData[index];
+            
+            // Update app info
+            document.getElementById('det-title').textContent = currentApp.name;
+            document.getElementById('det-type').textContent = (currentApp.type || 'APP').toUpperCase();
+            document.getElementById('det-desc').textContent = currentApp.desc || 'No description available.';
+            
+            // Set app icon with error handling
+            const iconImg = document.getElementById('det-icon');
+            iconImg.src = currentApp.icon || 'https://via.placeholder.com/80x80/111/00ff41?text=APP';
+            iconImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/80x80/111/00ff41?text=APP';
+            };
+            
+            // Load screenshots - FIXED SECTION
+            loadScreenshots();
+            
+            // Show modal
+            document.getElementById('details-modal').style.display = 'block';
+            resetCircularDownload();
+        }
+
+        function loadScreenshots() {
+            const screenshotsContainer = document.getElementById('det-ss');
+            screenshotsContainer.innerHTML = '';
+            
+            // Check if screenshots exist
+            const ss1 = currentApp.ss1 || currentApp.screenshot1 || currentApp.ss;
+            const ss2 = currentApp.ss2 || currentApp.screenshot2;
+            
+            const screenshots = [];
+            if (ss1) screenshots.push(ss1);
+            if (ss2) screenshots.push(ss2);
+            
+            if (screenshots.length === 0) {
+                // Show placeholder if no screenshots
+                screenshotsContainer.innerHTML = `
+                    <div class="screenshot-item">
+                        <div class="no-screenshot">
+                            <div>
+                                <div style="font-size: 24px; margin-bottom: 10px;">📱</div>
+                                <div>No screenshots available</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <div class="no-screenshot">
+                            <div>
+                                <div style="font-size: 24px; margin-bottom: 10px;">🖼️</div>
+                                <div>Screenshots coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display available screenshots
+            screenshots.forEach((ssUrl, index) => {
+                const screenshotDiv = document.createElement('div');
+                screenshotDiv.className = 'screenshot-item';
+                
+                screenshotDiv.innerHTML = `
+                    <img class="screenshot-img" 
+                         src="${ssUrl}" 
+                         alt="Screenshot ${index + 1}"
+                         onerror="this.parentElement.innerHTML='<div class=\"no-screenshot\"><div><div style=\"font-size: 24px; margin-bottom: 10px;\">❌</div><div>Image failed to load</div></div></div>'">
+                `;
+                
+                screenshotsContainer.appendChild(screenshotDiv);
+            });
+            
+            // Add placeholders if less than 2 screenshots
+            if (screenshots.length < 2) {
+                for (let i = screenshots.length; i < 2; i++) {
+                    const placeholderDiv = document.createElement('div');
+                    placeholderDiv.className = 'screenshot-item';
+                    placeholderDiv.innerHTML = `
+                        <div class="no-screenshot">
+                            <div>
+                                <div style="font-size: 24px; margin-bottom: 10px;">📱</div>
+                                <div>No screenshot ${i + 1}</div>
+                            </div>
+                        </div>
+                    `;
+                    screenshotsContainer.appendChild(placeholderDiv);
+                }
+            }
+        }
+
+        function closeDetails() {
+            document.getElementById('details-modal').style.display = 'none';
+            if (currentDownloadInterval) {
+                clearInterval(currentDownloadInterval);
+                currentDownloadInterval = null;
+            }
+        }
+
+        // Download Functions
+        function resetCircularDownload() {
+            const progressBar = document.getElementById('circularProgressBar');
+            const progressValue = document.getElementById('circularProgressValue');
+            const progressLabel = document.getElementById('circularProgressLabel');
+            const buttonText = document.getElementById('downloadButtonText');
+            const restrictionBanner = document.getElementById('restrict-banner');
+            
+            progressBar.style.strokeDashoffset = 440;
+            progressValue.textContent = "0%";
+            progressLabel.textContent = "Tap to Download";
+            buttonText.textContent = "DOWNLOAD WITH NEON GROWING";
+            restrictionBanner.style.display = 'none';
+            
+            if (currentDownloadInterval) {
+                clearInterval(currentDownloadInterval);
+                currentDownloadInterval = null;
+            }
+        }
+
+        function startCircularDownload() {
+            if (isTrial) {
+                document.getElementById('restrict-banner').style.display = 'block';
+                return;
+            }
+            
+            if (currentDownloadInterval) {
+                clearInterval(currentDownloadInterval);
+            }
+            
+            const progressBar = document.getElementById('circularProgressBar');
+            const progressValue = document.getElementById('circularProgressValue');
+            const progressLabel = document.getElementById('circularProgressLabel');
+            const buttonText = document.getElementById('downloadButtonText');
+            
+            let progress = 0;
+            buttonText.textContent = "DOWNLOADING...";
+            progressLabel.textContent = "Please wait";
+            
+            currentDownloadInterval = setInterval(() => {
+                progress += 2;
+                if (progress > 100) progress = 100;
+                
+                const offset = 440 - (progress / 100) * 440;
+                progressBar.style.strokeDashoffset = offset;
+                progressValue.textContent = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(currentDownloadInterval);
+                    currentDownloadInterval = null;
+                    progressLabel.textContent = "Complete!";
+                    buttonText.textContent = "OPEN APP";
+                    
+                    // Open app after delay
+                    setTimeout(() => {
+                        if (currentApp && currentApp.url) {
+                            window.open(currentApp.url, '_blank');
+                        } else {
+                            alert('App downloaded successfully!');
+                        }
+                        closeDetails();
+                    }, 1000);
+                }
+            }, 50);
+        }
+
+        // Navigation Functions
+        function showPage(page) {
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.nav-item').classList.add('active');
+            
+            // Show page content (for future expansion)
+            alert(`${page} page coming soon!`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add search functionality
+            const searchInput = document.getElementById('searchBar');
+            if (searchInput) {
+                searchInput.addEventListener('input', filterApps);
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('details-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDetails();
+            }
+        });
+    </script>
+</body>
+      </html>
